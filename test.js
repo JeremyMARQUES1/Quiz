@@ -114,3 +114,23 @@ const { Answer, Level, Question, Quiz, Tag, User } = require('./app/models');
 //   console.log(tag);
 // })
 
+// const quizSubmitForm = (request, response, next) => {
+//     Quiz.findByPk(1, {
+//             include: [
+//                 'author',
+//                 'tags',
+//                 {
+//                     association: 'questions',
+//                     include: ['level', 'answers', 'good_answer']
+//                 }
+//             ],
+//             order: [
+//                 ['questions', 'level_id', 'ASC'],
+//                 ['questions', 'answers', 'description', 'desc']
+//             ],
+//         }).then(quiz => {
+//             console.log(quiz.questions[1].good_answer)
+//         });
+// }
+
+// quizSubmitForm();

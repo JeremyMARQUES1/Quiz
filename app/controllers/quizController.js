@@ -56,7 +56,7 @@ module.exports = {
                     'tags',
                     {
                         association: 'questions',
-                        include: ['level', 'answers']
+                        include: ['level', 'answers', 'good_answer']
                     }
                 ],
                 order: [
@@ -65,16 +65,16 @@ module.exports = {
                 ],
             });
             let score = 0;
-            let myAnswer = request.body
-            for (property in request.body) {
-                if(property === request.body[property]) {
+            let user_answer = request.body
+            for (property in user_answer) {
+                if(property === user_answer[property]) {
                     score++;
                 }
             }
             response.render('score', {
                 score,
                 quiz,
-                myAnswer
+                user_answer
             });
         } catch (error) {
             console.error(error);
