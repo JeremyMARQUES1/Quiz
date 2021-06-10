@@ -16,6 +16,8 @@ router.get('/', mainController.homePage);
 // Si la route est verifié, il exécute le controller et répond à la requête. Il ne va pas plus loin dans la chaîne des middlewares
 router.get('/quiz/:id(\\d+)', quizController.quiz);
 
+router.post('/quiz/:id(\\d+)', quizController.quizSubmitForm);
+
 // route affichant le formulaitre non rempli
 router.get('/signup', mainController.signupPage);
 // route récupérant les informations postées par l'utilisateur et réaffichage du formaulaire rempli en cas d'erreur
