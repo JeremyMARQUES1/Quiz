@@ -1,5 +1,30 @@
 <%-include('partials/header')%>
 
 <h1>Votre score au quiz <%= quiz.title %> est de <%= score %>/<%= quiz.questions.length %></h1>
+<h2>Voici les bonnes réponses de ce quiz:</h2>
 
-<%-include('partials/footer')%>
+<div class="row">
+
+    <%for (const question of quiz.questions){%>
+    <div class="col-12">
+        <label class="badge level level--<%=question.level.name.toLowerCase()%>"><%=question.level.name%></label>
+        <h4>
+            <%=question.question%>
+        </h4>
+        <%# du côté de la vue je me retrouve avec une propriété "answers" qui contient une liste de "answer". Je vais donc pouvoir bouclé sur ce tableau afin de récupérer les informations de chaque réponse possible.%>
+        <ol>
+            <% for (const answer of question.answers){%>
+                <% if (answer.id === question.id) { %>
+                <li style="color: green;"><%=answer.description%></li>
+                <%} else { %>
+                <li><%=answer.description%></li>
+                <% } %>
+                    
+            <%}%>
+        </ol>
+    </div>
+    <%}%>
+
+    </div>
+
+    <%-include('partials/footer')%>

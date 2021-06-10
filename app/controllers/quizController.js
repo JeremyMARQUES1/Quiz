@@ -65,15 +65,16 @@ module.exports = {
                 ],
             });
             let score = 0;
+            let myAnswer = request.body
             for (property in request.body) {
                 if(property === request.body[property]) {
                     score++;
                 }
             }
-            console.log(score);
             response.render('score', {
                 score,
-                quiz
+                quiz,
+                myAnswer
             });
         } catch (error) {
             console.error(error);
