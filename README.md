@@ -6,3 +6,7 @@ Instructions to launch the app:
 - Clone the repo
 - Create a .env file with .env.example content in it
 - Run npm i then npm start
+
+Preview: 
+
+![Preview](quiz.jpg)
